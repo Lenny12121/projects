@@ -70,7 +70,7 @@ $(()=> {
         })
     }
 
-    //This takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology. Still need to find average for speed based on aircraft type (maybe pick most common for ease).
+    //This takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
 
     const calculateDistance = () => {
         console.log(IATAcodeDeparture)
