@@ -70,7 +70,7 @@ $(()=> {
         })
     }
 
-    //This takes the above values and calculates distance. Still need to find average for speed based on aircraft type (maybe pick most common for ease).
+    //This takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology. Still need to find average for speed based on aircraft type (maybe pick most common for ease).
 
     const calculateDistance = () => {
         console.log(IATAcodeDeparture)
@@ -90,7 +90,17 @@ $(()=> {
             // $('.container').html(`
             // <h2> ${route.totals.distance_km} </h2>
             // `)
-            console.log(route.totals.distance_km)
+            let distance = route.totals.distance_km
+            console.log('distance before: ', distance);
+            if (distance <= 550) {
+                distance = distance + 50;
+            } else if (distance > 550 && distance <= 5500) {
+                distance = distance + 100;
+            } else {
+                distance = distance + 125;
+            }
+            console.log('distance after: ', distance);
+            // console.log(route.totals.distance_km)
             console.log(route)
             // return route.totals.distance_km
         }, (error) => {
