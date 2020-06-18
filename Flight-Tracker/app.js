@@ -113,10 +113,15 @@ $(()=> {
             // A320neo base:
                 // (distance * 2.3 * 3.15 * 0.85 * 2.7 * footprint by cabin class) / (155 *  0.8)
     
+    // We classify short haul flights as  less than 3000km and long haul as more than 3000km
+
     //The function calculateDistance takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
 
     const calculateDistance = () => {
-        console.log(IATAcodeDeparture)
+        // First take the Cabin Class entered by the user and save it for later
+        let cabinClass = $('#cabinClass').val();
+        console.log(cabinClass);
+        console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
         // let departure = $(IATAcodeDeparture).eq(0);
         // let arrival = $(IATAcodeArrival).eq(0);
@@ -145,7 +150,31 @@ $(()=> {
             console.log('distance after: ', distance);
             // console.log(route.totals.distance_km)
             console.log(route)
-            // return route.totals.distance_km
+            // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight
+            
+            let co2Emissions = 0
+
+            if (cabinClass == 'Economy' && distance < 3000) {
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8));
+            } else if (cabinClass == 'Premium Economy' && distance < 3000) {
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8));
+            } else if (cabinClass == 'Business' && distance < 3000) {
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 *  0.8));
+            } else if (cabinClass == 'First Class' && distance < 3000) {
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 *  0.8));
+            } else if (cabinClass == 'Economy' && distance >= 3000) {
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8));
+            } else if (cabinClass == 'Premium Economy' && distance >= 3000) {
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8));
+            } else if (cabinClass == 'Business' && distance >= 3000) {
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8));
+            } else if (cabinClass == 'First Class' && distance >= 3000) {
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8));
+            }
+            
+            console.log('co2 emissions after: ', co2Emissions);
+
+
         }, (error) => {
           console.error(error);
         })
@@ -168,7 +197,6 @@ $('#save-flight').on('click', (event) => {
     // console.log(departure1);
     // console.log(arrival1);
 });
-
 
 
 })
