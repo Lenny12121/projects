@@ -25,6 +25,7 @@
 body  {
     max-width: 90%;
     background-color: #f4f4f4;
+    margin: auto;
 }
 
 .container  {
@@ -39,15 +40,22 @@ body  {
 }
 
 form  {
-    max-width: 50%;
+    width: 50%;
     background-color: #fafcfb;
     padding: 30px;
+    margin-left: 3%;
     font-family: 'Catamaran', sans-serif;
     border-radius: 20px;
     -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
     -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
     box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
 
+}
+
+.main   {
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
 }
 
 .input  {
@@ -64,10 +72,16 @@ form  {
     margin-top: 5px;
     margin-bottom: 15px;
     color: #667380;
+    font-size: 16px;
+    font-family: 'Catamaran', sans-serif;
 }
 
 #label  {
     color: #667380;
+}
+
+.inputBody  {
+    padding: 5px;
 }
 
 .heading {
@@ -83,6 +97,7 @@ form  {
     text-align: left;
     font-size: 20px;
     padding-top: 5px;
+    padding-left: 10px;
 }
 
 #save-flight {
@@ -102,13 +117,16 @@ form  {
     font-size: 16px;
     font-weight: 600;
     border-width: 0;
+    cursor: pointer;
 }
 
 #loggedFlight {
-    max-width: 33%;
+    width: 29%;
     background-color: #fafcfb;
     padding: 15px;
-    margin-right: 20px;
+    margin-right: 1%;
+    margin-left: 1%;
+    margin-bottom: 15px;
     font-family: 'Catamaran', sans-serif;
     border-radius: 20px;
     -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
@@ -156,10 +174,10 @@ form  {
 
 #offset-flight {
     background-color: #43bfbf;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-top: 7px;
+    padding-bottom: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
     width: 100%;
     border-radius: 45px;
     -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
@@ -168,14 +186,19 @@ form  {
     font-family: 'Catamaran', sans-serif;
     text-align: center;
     color: #fafcfb;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
     border-width: 0;
+}
+
+#offset-flight:hover {
+    background-color: #4dcccc;
 }
 
 #close {
     width: 10px;
     height: 10px;
+    cursor: pointer;
 }
 
 .s-hidden {
@@ -232,6 +255,7 @@ form  {
     -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
     box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
 }
+
 .options li {
     padding:0 6px;
     margin:0 0;
@@ -240,5 +264,65 @@ form  {
 .options li:hover {
     background-color:#43bfbf;
     color:#fafcfb;
+}
+
+#intro  {
+    width: 45%;
+    margin-top: ;
+}
+
+#accordion  {
+    color: #667380;
+    font-family: 'Catamaran', sans-serif;
+    width: 100%;
+    border-radius: 20px;
+}
+
+#accordion .ui-accordion-content {
+    width: 100%;
+    background-color: #fafcfb;
+    color: #667380;
+    font-size: 14px;
+}
+
+p {
+    width: 95%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* #accordion .ui-accordion-content > * {
+    margin: 0;
+    padding: 20px;
+  } */
+
+  /* #accordion .ui-accordion-content a {
+    color: #43bfbf;
+  } */
+
+  #accordion .ui-accordion-header {
+    background-color: #8c959e;
+    color: #fafcfb;
+    font-weight: 600;
+    margin: 0px;
+    padding-left: 5px;
+}
+
+#accordion .ui-accordion-header a {
+    color: #fff;
+    line-height: 42px;
+    display: block;
+    font-size: 12pt;
+    width: 100%;
+    text-indent: 10px;
+}
+
+#accordion .ui-accordion-header a {
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(0, 0, 0, .2);
+    border-left: 1px solid rgba(0, 0, 0, .2);
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    border-top: 1px solid rgba(250, 250, 250, .2);
 }
 

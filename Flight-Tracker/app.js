@@ -212,13 +212,17 @@ $(()=> {
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
 
             $('.flightBox').append(`
-                <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div id="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">${co2Emissions} tonnes of CO2 ($$$)</button> </div>
+                <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div id="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($$$)</button> </div>
             `)
 
+            //NEED TO CHANGE THIS SO IT ONLY TARGETS CURRENT EVENT
             $('#closeImage').on('click', (event) => {
-                $('.flightBox').empty();
-                console.log('clicking')
+                // event.stopPropagation();
+                $(event.currentTarget).empty();
+                // console.log('clicking');
             });
+
+            $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
 
         }, (error) => {
           console.error(error);
@@ -247,31 +251,24 @@ $('#save-flight').on('click', (event) => {
 
 $('select').each(function () {
 
-    // Cache the number of options
     var $this = $(this),
     numberOfOptions = $(this).children('option').length;
 
 // Hides the select element
 $this.addClass('s-hidden');
 
-// Wrap the select element in a div
 $this.wrap('<div class="select"></div>');
 
-// Insert a styled div to sit over the top of the hidden select element
 $this.after('<div class="styledSelect"></div>');
 
-// Cache the styled div
 var $styledSelect = $this.next('div.styledSelect');
 
-// Show the first select option in the styled div
 $styledSelect.text($this.children('option').eq(0).text());
 
-// Insert an unordered list after the styled div and also cache the list
 var $list = $('<ul />', {
     'class': 'options'
 }).insertAfter($styledSelect);
 
-// Insert a list item into the unordered list for each select option
 for (var i = 0; i < numberOfOptions; i++) {
     $('<li />', {
         text: $this.children('option').eq(i).text(),
@@ -279,10 +276,8 @@ for (var i = 0; i < numberOfOptions; i++) {
     }).appendTo($list);
 }
 
-// Cache the list items
 var $listItems = $list.children('li');
 
-// Show the unordered list when the styled div is clicked (also hides it if the div is clicked again)
 $styledSelect.click(function (e) {
     e.stopPropagation();
     $('div.styledSelect.active').each(function () {
@@ -291,8 +286,6 @@ $styledSelect.click(function (e) {
     $(this).toggleClass('active').next('ul.options').toggle();
 });
 
-// Hides the unordered list when a list item is clicked and updates the styled div to show the selected list item
-// Updates the select element to have the value of the equivalent option
 $listItems.click(function (e) {
     e.stopPropagation();
     $styledSelect.text($(this).text()).removeClass('active');
@@ -307,6 +300,12 @@ $(document).click(function () {
     $list.hide();
 });
 
+});
+
+//Accordion implemented using jQuery UI and elements for styling from here: https://www.hongkiat.com/blog/theming-jquery-ui-accordion/
+
+$( "#accordion" ).accordion({
+    collapsible: true
 });
 
 
