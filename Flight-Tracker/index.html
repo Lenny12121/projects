@@ -14,48 +14,110 @@
         <h1 class="heading">Log & Offset Your Flights</h1>
         <div class="main">
             <div id="intro">
-                <p>Start by entering your flight </p>
+                <p id="introText">Start by entering your flight information in the area provided to the right. All of your flights and the CO2 to offset per flight is stored in your flight log below.</p>
+                <p id="introText">If you want to find out more about our methodology check out the information below:</p>
+                <br>
                 <div id="accordion">
-                    <h3>Section 1</h3>
+                    <h3>Methodology</h3>
                     <div>
                         <p>
-                        Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                        ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                        amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                        odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                            To calculate the emissions of 1 individual person on the flight we use the following formula: 
+                            (distance * fuel consumption * emissions/kg * RFI * footprint by cabin class * passenger to cargo ratio) / (number of seats on the plane * plane load factor).
                         </p>
                     </div>
-                    <h3>Section 2</h3>
+                    <h3>Aircrafts</h3>
                     <div>
                         <p>
-                            Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-                            purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-                            velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-                            suscipit faucibus urna.
+                            There are a lot of aircrafts to choose from so to narrow it down we used two of the most popular planes for short-haul and long-haul flights. 
+                            <ul>
+                                <li>A320neo for short-haul</li>
+                                <li>A350 for long-haul</li>
+                            </ul>
+                            <a href="https://www.oliverwyman.com/content/dam/oliver-wyman/v2/publications/2019/January/global-fleet-mro-market-forecast-commentary-2019-2029.pdf" target="blank">Source</a>
                         </p>
                     </div>
-                    <h3>Section 3</h3>
+                    <h3>Emissions</h3>
                     <div>
                         <p>
-                            Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-                            Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-                            ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-                            lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                            The use of fuel depends greatly on external factors, however our research showed that on average each aircraft used burned the following:
+                            <ul>
+                                <li>The A320neo uses around 2.3kg/km</li>
+                                <li>The A350 uses 8.9kg/km</li>
+                            </ul>
+                            <a href="https://books.google.at/books?id=Z5W0DwAAQBAJ&pg=PT164&lpg=PT164&dq=fuel+burn+a320neo&source=bl&ots=xyOeoeVCPW&sig=ACfU3U0jV3OhBfBm63UsdV4oz5nV8K9Y1A&hl=en&sa=X&ved=2ahUKEwifjoml-orqAhUXHHcKHbQbCPk4ChDoATABegQIChAB#v=onepage&q=fuel%20burn%20a320neo&f=false" target="blank">Source</a>
+                            <a href="https://theicct.org/sites/default/files/publications/Transatlantic_Fuel_Efficiency_Ranking_20180912.pdf" target="blank">Source</a>
                         </p>
                     </div>
-                    <h3>Section 4</h3>
+                    <h3>Emissions per Kg</h3>
                     <div>
                         <p>
-                            Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-                            et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-                            faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-                            mauris vel est.
+                            According to the IATA every kg of fuel burned during flight releases 3.15kg of CO2.
                         </p>
+                        <a href="https://www.iata.org/contentassets/922ebc4cbcd24c4d9fd55933e7070947/icop20faq20general20for20airline20participants20jan202016.pdf" target="blank">Source</a>
+                    </div>
+                    <h3>Distance</h3>
+                    <div>
                         <p>
-                            Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-                            Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-                            inceptos himenaeos.
+                            After calculating the flight distance we adjust it using the ICAO best practice: 
+                            <ul>
+                                <li>If the distance is less than 550km we add 50km</li>
+                                <li>If the distance is 550km-5500km we add 100km</li>
+                                <li>If the distance is more than 5500km we add 125km</li>
+                            </ul>
+                            <a href="https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf" target="blank">Source</a>
                         </p>
+                    </div>
+                    <h3>Passenger to Cargo Ratio</h3>
+                    <div>
+                        <p>
+                            Since a plane doesn't only carry passengers, we also have to account for the passenger to cargo ratio. According to the ICAO the average is is 0.85.
+                        </p>
+                        <a href="https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf" target="blank">Source</a>
+                    </div>
+                    <h3>Seats</h3>
+                    <div>
+                        <p>
+                            As you want to offset your ticket and not the entire plane, the number of seats on each aircraft are  important to take into account. Our research showed that: 
+                            <ul>
+                                <li>The A320neo has an average of 155 seats</li>
+                                <li>The A350 has an average of 380 seats</li>
+                            </ul>
+                        </p>
+                        <a href="https://www.airbus.com/aircraft/passenger-aircraft/a320-family/a320neo.html" target="blank">Source</a>
+                        <a href="https://www.airbus.com/aircraft/passenger-aircraft/a350xwb-family/a350-1000.html" target="blank">Source</a>
+                    </div>
+                    <h3>Passenger Load</h3>
+                    <div>
+                        <p>
+                            The ICAO estimates airplane passenger load to be 0.8.
+                        </p>
+                        <a href="https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf" target="blank">Source</a>
+                    </div>
+                    <h3>Travel Class</h3>
+                    <div>
+                        <p>
+                            Since the seats in different classes are of different sizes, more passengers can for example fit into economy than first class we have to factor in a multiplicator. According to the World Bank Footprints by travel class, relative to the footprint of an average aassenger, assuming Load Factors of 0.40 for First Class, 0.60 for Business Class,and 0.80 for Economy Class are:
+                            <ul>
+                                <li>Economy (0.82)<li>
+                                <li>Business (2.07)</li>
+                                <li>First Class (4.79)</li>
+                            </ul>
+                        </p>
+                        <a href="http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf" target="blank">Source</a>
+                    </div>
+                    <h3>Radiative Forcing Index</h3>
+                    <div>
+                        <p>
+                            The Radiative Forcing Index is extremely difficult to account for and ensures that we take into account other externalities of flying such as such as the release of NOx & sulphure. The World Bank estimates an average RFI of 2.7.
+                        </p>
+                        <a href="http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf" target="blank">Source</a>
+                    </div>
+                    <h3>Short vs. Long-haul</h3>
+                    <div>
+                        <p>
+                            We classify short haul flights as  less than 3000km and long haul as more than 3000km
+                        </p>
+                        <!-- <a href="http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf" target="blank">Source</a> -->
                     </div>
                 </div>
             </div>

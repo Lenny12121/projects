@@ -43,6 +43,7 @@ form  {
     width: 50%;
     background-color: #fafcfb;
     padding: 30px;
+    padding-top: 40px;
     margin-left: 3%;
     font-family: 'Catamaran', sans-serif;
     border-radius: 20px;
@@ -74,6 +75,7 @@ form  {
     color: #667380;
     font-size: 16px;
     font-family: 'Catamaran', sans-serif;
+    margin-bottom: 30px;
 }
 
 #label  {
@@ -106,6 +108,7 @@ form  {
     padding-bottom: 10px;
     padding-left: 35px;
     padding-right: 35px;
+    margin-top: 20px;
     width: 100%;
     border-radius: 45px;
     -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
@@ -120,7 +123,7 @@ form  {
     cursor: pointer;
 }
 
-#loggedFlight {
+.loggedFlight {
     width: 29%;
     background-color: #fafcfb;
     padding: 15px;
@@ -215,6 +218,7 @@ form  {
     border-radius: 1px;
     width: 100%;
     color: #667380;
+    margin-bottom: 20px;
 }
 .styledSelect {
     position:absolute;
@@ -280,6 +284,7 @@ form  {
 
 #accordion .ui-accordion-content {
     width: 100%;
+    height: 115px;
     background-color: #fafcfb;
     color: #667380;
     font-size: 14px;
@@ -289,6 +294,16 @@ p {
     width: 95%;
     padding-left: 5px;
     padding-right: 5px;
+    color: #667380;
+    font-family: 'Catamaran', sans-serif;
+}
+
+#introText {
+    width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #667380;
+    font-family: 'Catamaran', sans-serif;
 }
 
 /* #accordion .ui-accordion-content > * {
@@ -296,16 +311,19 @@ p {
     padding: 20px;
   } */
 
-  /* #accordion .ui-accordion-content a {
+  #accordion .ui-accordion-content a {
     color: #43bfbf;
-  } */
+    padding-left: 5px;
+    font-family: 'Catamaran', sans-serif;
+  }
 
   #accordion .ui-accordion-header {
-    background-color: #8c959e;
-    color: #fafcfb;
+    background-color: #d3d3d3;
+    color: #667380;
     font-weight: 600;
     margin: 0px;
     padding-left: 5px;
+    font-size: 14px;
 }
 
 #accordion .ui-accordion-header a {

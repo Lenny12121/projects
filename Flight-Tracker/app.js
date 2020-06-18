@@ -212,13 +212,13 @@ $(()=> {
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
 
             $('.flightBox').append(`
-                <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div id="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($$$)</button> </div>
+                <div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($$$)</button> </div>
             `)
 
             //NEED TO CHANGE THIS SO IT ONLY TARGETS CURRENT EVENT
-            $('#closeImage').on('click', (event) => {
+            $('.closeImage').on('click', (event) => {
                 // event.stopPropagation();
-                $(event.currentTarget).empty();
+                $('.closeImage').closest('.loggedFLight').remove();
                 // console.log('clicking');
             });
 
@@ -254,7 +254,6 @@ $('select').each(function () {
     var $this = $(this),
     numberOfOptions = $(this).children('option').length;
 
-// Hides the select element
 $this.addClass('s-hidden');
 
 $this.wrap('<div class="select"></div>');
@@ -291,10 +290,8 @@ $listItems.click(function (e) {
     $styledSelect.text($(this).text()).removeClass('active');
     $this.val($(this).attr('rel'));
     $list.hide();
-    /* alert($this.val()); Uncomment this for demonstration! */
 });
 
-// Hides the unordered list when clicking outside of it
 $(document).click(function () {
     $styledSelect.removeClass('active');
     $list.hide();
@@ -305,7 +302,8 @@ $(document).click(function () {
 //Accordion implemented using jQuery UI and elements for styling from here: https://www.hongkiat.com/blog/theming-jquery-ui-accordion/
 
 $( "#accordion" ).accordion({
-    collapsible: true
+    collapsible: true,
+    heightStyle: "fill"
 });
 
 
