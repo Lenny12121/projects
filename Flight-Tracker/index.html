@@ -6,6 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
         <script src="app.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/airport-autocomplete-js@latest/dist/index.browser.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -13,20 +14,21 @@
         <h1 class="heading">Log & Offset Your Flights</h1>
         <form>
             <label id="label">Roundtrip</label><br>
-            <select class="input" id="tripChoice">
-                <option id="Yes">Yes</option>
-                <option id="No">No</option>
-            </select><br>
+            <select id="custom-input">
+                <option class="inputBody" id="Yes">Yes</option>
+                <option class="inputBody" id="No">No</option>
+            </select>
+            <br>
             <label id="label">Enter Departure Airport</label>
-            <input class="input" type="text" id="departure" placeholder="Departure Airport"/>
+            <input class="inputText" type="text" id="departure" placeholder="Departure Airport"/>
             <label id="label">Enter Arrival Airport</label>
-            <input class="input" type="text" id="arrival" placeholder="Arrival Airport"/>
+            <input class="inputText" type="text" id="arrival" placeholder="Arrival Airport"/>
             <label id="label">Choose Cabin Class</label><br>
-            <select class="input" id="cabinClass">
-                <option class="input" id="economy">Economy</option>
-                <option class="input" id="premium-economy">Premium Economy</option>
-                <option class="input" id="business">Business</option>
-                <option class="input" id="first-class">First Class</option>
+            <select class="custom-input" id="cabinClass">
+                <option class="inputBody" id="economy">Economy</option>
+                <option class="inputBody" id="premium-economy">Premium Economy</option>
+                <option class="inputBody" id="business">Business</option>
+                <option class="inputBody" id="first-class">First Class</option>
             </select><br><br>
             <button id="save-flight">Save Flight & Calculate</button>
           </form>
@@ -35,9 +37,6 @@
         <h2 class="heading1">Your Flights</h2>
         <div class="flightBox">
 
-            <!-- <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div id="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">${co2Emissions} tonnes of CO2 ($$$)</button> </div> -->
-
-            <!-- <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> LHR - LAX </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <img id="close" src="./Assets/Untitled-1.png" alt="Close"> </div> <button id="offset-flight">Offset ($$)</button> </div> -->
         </div>
 
       </div>
