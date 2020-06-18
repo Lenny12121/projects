@@ -70,7 +70,50 @@ $(()=> {
         })
     }
 
-    //This takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
+
+    // Most used aircrafts are A320neo for short-haul & A350 for long-haul
+        //source: https://www.oliverwyman.com/content/dam/oliver-wyman/v2/publications/2019/January/global-fleet-mro-market-forecast-commentary-2019-2029.pdf
+
+    //The A350 uses around  8.9kg/km, 
+        // source: https://theicct.org/sites/default/files/publications/Transatlantic_Fuel_Efficiency_Ranking_20180912.pdf
+    
+    //The A320neo uses around 2.3kg/km
+        //Source: https://books.google.at/books?id=Z5W0DwAAQBAJ&pg=PT164&lpg=PT164&dq=fuel+burn+a320neo&source=bl&ots=xyOeoeVCPW&sig=ACfU3U0jV3OhBfBm63UsdV4oz5nV8K9Y1A&hl=en&sa=X&ved=2ahUKEwifjoml-orqAhUXHHcKHbQbCPk4ChDoATABegQIChAB#v=onepage&q=fuel%20burn%20a320neo&f=false
+
+    // 1kg of fuel produces an average of 3.15kg of CO2
+        //source: https://www.iata.org/contentassets/922ebc4cbcd24c4d9fd55933e7070947/icop20faq20general20for20airline20participants20jan202016.pdf
+    
+    //Passenger to cargo factor taken average from ICAO which is 0.85
+        //Source: https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf
+
+    // A350 has about 380 seats in 3 class layout
+        //source: https://www.airbus.com/aircraft/passenger-aircraft/a350xwb-family/a350-1000.html
+
+    // A320neo has average of 155 seats in 2 class layout
+        // https://www.airbus.com/aircraft/passenger-aircraft/a320-family/a320neo.html
+
+
+    //Passenger load of average 0.8
+        //Source: https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf
+    
+    // Load factor by class is around Economy (0.8), Business (0.6), First (0.4)
+        //Source: http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf
+    
+    //  Footprints by Travel Class, Relative to the Footprint of an Average Passenger, assuming Load Factors of 0.40 for First Class, 0.60 for Business Class,and 0.80 for Economy Class is:
+        // Economy (0.82), Business (2.07), First (4.79)
+            //Source (pg 15): http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf
+            
+    // Radiative forcing index of 2.7 to account for additional negative externalities of flight such as the release of NOx & sulphure which causes o3 and a degradation of CH4 in the atmosphere
+        //Source: http://documents.worldbank.org/curated/en/141851468168853188/pdf/WPS6471.pdf
+
+    // To calculate the emissions of 1 individual person on the flight we must take the: 
+        // (distance * fuel consumption * emissions/kg * passenger to cargo ratio * RFI * footprint by cabin class) / (number of seats on the plane * plane load factor)
+            // A350 base:
+                // (distance * 8.9 * * 3.15 * 0.85 * 2.7 * footprint by cabin class) / (380 * 0.8)
+            // A320neo base:
+                // (distance * 2.3 * 3.15 * 0.85 * 2.7 * footprint by cabin class) / (155 *  0.8)
+    
+    //The function calculateDistance takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
 
     const calculateDistance = () => {
         console.log(IATAcodeDeparture)
