@@ -120,11 +120,13 @@ $(()=> {
 
     //The function calculateDistance takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
 
+    // We are charging $4.20 per tonne
+
     const calculateCO2 = () => {
         // First take the Cabin Class entered by the user and save it for later
-        let cabinClass = $('#custom-input').val();
+        let cabinClass = $('.inputBody').val();
         console.log(cabinClass);
-        let tripChoice = $('#custom-input').val();
+        let tripChoice = $('.inputBody1').val();
         console.log(tripChoice);
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
@@ -154,6 +156,9 @@ $(()=> {
             // console.log(route)
 
             // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight using the formula we created in the notes above
+
+            console.log('CabinClass: ', cabinClass)
+            console.log('tripChoice: ', tripChoice)
             
             let co2Emissions = 0
             if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'No') {
@@ -204,23 +209,39 @@ $(()=> {
             } else if (cabinClass == 'First Class' && distance >= 3000 && tripChoice == 'Yes') {
                 co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8))/1000) * 2;
                 co2Emissions = Math.ceil(co2Emissions);
+            } else  {
+                console.log('error. Fool!')
             }
             
             console.log('co2 emissions after: ', co2Emissions);
 
             let IATAcodeDeparture = $('#departure').val().substring(0,3);
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
+            let price = co2Emissions * 4.20;
+            let finalPrice = Math.ceil(price);
+
+            // let randomNumber = Math.random();
+            // let randomNumber1 = Math.random();
+            // let randomId = randomNumber * randomNumber1;
 
             $('.flightBox').append(`
-                <div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($$$)</button> </div>
+                <div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${finalPrice})</button> </div>
             `)
 
+            
+
             //NEED TO CHANGE THIS SO IT ONLY TARGETS CURRENT EVENT
-            $('.closeImage').on('click', (event) => {
-                // event.stopPropagation();
-                $('.closeImage').closest('.loggedFLight').remove();
-                // console.log('clicking');
-            });
+            // $('.closeImage').on('click', (event) => {
+            //     // event.stopPropagation();
+            //     $(this).remove();
+            //     console.log('this is the mightiest clicking: ', event);
+            // });
+
+            // $(".closeImage").click(function () {
+            //     $(this).find('.loggedFlight').remove();
+            // });
+            
+            
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
 
@@ -228,6 +249,10 @@ $(()=> {
           console.error(error);
         })
     }
+
+    $(document).on('click', '.closeImage' , function(){
+        $(this).parent().parent().remove(); 
+    })
 
     // let departure1 = $(IATAcodeDeparture).eq(0);
     // let arrival1 = $(IATAcodeArrival).eq(0);
