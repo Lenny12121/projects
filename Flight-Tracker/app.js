@@ -21,19 +21,10 @@ $(()=> {
             "x-rapidapi-key": "127954c385msh671084fd9c934cap1652ccjsn0d18428954de"
         }
         }).then((airport) => {
-            // $('.container').html(`
-            // <h2> ${airport[0].name} </h2>
-            // <h2> ${airport[0].ident} </h2>
-            // `)
-            // console.log(airport[0].name)
-            // console.log(airport[0].ident)
-            // console.log(airport)
-            // IATAcodeDeparture.push(airport[0].ident);
             let departure = airport[0].ident
             IATAcodeDeparture = departure;
             console.log('departure: ' , IATAcodeDeparture)
             getAirportArrival();
-            // return airport[0].ident
         }, (error) => {
           console.error(error);
         })
@@ -52,19 +43,9 @@ $(()=> {
             "x-rapidapi-key": "127954c385msh671084fd9c934cap1652ccjsn0d18428954de"
         }
         }).then((airport) => {
-            // $('.container').html(`
-            // <h2> ${airport[0].name} </h2>
-            // <h2> ${airport[0].ident} </h2>
-            // `)
-            // console.log(airport[0].name)
-            // console.log(airport[0].ident)
-            // console.log(airport)
-            // IATAcodeArrival.push(airport[0].ident);
             let arrival = airport[0].ident
             IATAcodeArrival = arrival;
             calculateDistance();
-            // console.log(IATAcodeArrival);
-            // return airport[0].ident
         }, (error) => {
           console.error(error);
         })
@@ -123,9 +104,6 @@ $(()=> {
         console.log(cabinClass);
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
-        // let departure = $(IATAcodeDeparture).eq(0);
-        // let arrival = $(IATAcodeArrival).eq(0);
-        // console.log(departure);
         $.ajax({
           url: "https://greatcirclemapper.p.rapidapi.com/airports/route/" + IATAcodeDeparture + "-" + IATAcodeArrival + "/510",
           method: "GET",
@@ -149,7 +127,7 @@ $(()=> {
             }
             console.log('distance after: ', distance);
             // console.log(route.totals.distance_km)
-            console.log(route)
+            // console.log(route)
             // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight
             
             let co2Emissions = 0
