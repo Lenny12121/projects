@@ -45,7 +45,7 @@ $(()=> {
         }).then((airport) => {
             let arrival = airport[0].ident
             IATAcodeArrival = arrival;
-            calculateDistance();
+            calculateCO2();
         }, (error) => {
           console.error(error);
         })
@@ -98,7 +98,7 @@ $(()=> {
 
     //The function calculateDistance takes the above values and calculates distance. It then also  corrects the distance measurement taken from Great Circle Mapper as described in the ICAO methodology (https://www.icao.int/environmental-protection/CarbonOffset/Documents/Methodology%20ICAO%20Carbon%20Calculator_v10-2017.pdf). Average commercial aircraft speed is about 510 kts.
 
-    const calculateDistance = () => {
+    const calculateCO2 = () => {
         // First take the Cabin Class entered by the user and save it for later
         let cabinClass = $('#cabinClass').val();
         console.log(cabinClass);
@@ -133,24 +133,39 @@ $(()=> {
             let co2Emissions = 0
 
             if (cabinClass == 'Economy' && distance < 3000) {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8));
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance < 3000) {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8));
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance < 3000) {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 *  0.8));
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 *  0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance < 3000) {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 *  0.8));
+                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 *  0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Economy' && distance >= 3000) {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8));
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance >= 3000) {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8));
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance >= 3000) {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8));
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance >= 3000) {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8));
+                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
             }
             
             console.log('co2 emissions after: ', co2Emissions);
+
+            let IATAcodeDeparture = $('#departure').val().substring(0,3);
+            let IATAcodeArrival = $('#arrival').val().substring(0,3);
+
+            $('.container').html(`
+                <div> <h2> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3> ${co2Emissions} tonnes of CO2</h3> </div>
+            `)
 
 
         }, (error) => {
