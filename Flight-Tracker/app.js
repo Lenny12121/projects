@@ -102,6 +102,8 @@ $(()=> {
         // First take the Cabin Class entered by the user and save it for later
         let cabinClass = $('#cabinClass').val();
         console.log(cabinClass);
+        let tripChoice = $('#tripChoice').val();
+        console.log(tripChoice);
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
         $.ajax({
@@ -131,30 +133,53 @@ $(()=> {
             // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight
             
             let co2Emissions = 0
-
-            if (cabinClass == 'Economy' && distance < 3000) {
+            if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'Premium Economy' && distance < 3000) {
+            } else if (cabinClass == 'Premium Economy' && distance < 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'Business' && distance < 3000) {
+            } else if (cabinClass == 'Business' && distance < 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 *  0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'First Class' && distance < 3000) {
+            } else if (cabinClass == 'First Class' && distance < 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 *  0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'Economy' && distance >= 3000) {
+            } else if (cabinClass == 'Economy' && distance >= 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'Premium Economy' && distance >= 3000) {
+            } else if (cabinClass == 'Premium Economy' && distance >= 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'Business' && distance >= 3000) {
+            } else if (cabinClass == 'Business' && distance >= 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8))/1000;
                 co2Emissions = Math.ceil(co2Emissions);
-            } else if (cabinClass == 'First Class' && distance >= 3000) {
+            } else if (cabinClass == 'First Class' && distance >= 3000 && tripChoice == 'No') {
                 co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8))/1000;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Premium Economy' && distance < 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 *  0.8))/1000)  * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Business' && distance < 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 *  0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'First Class' && distance < 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 *  0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Economy' && distance >= 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Premium Economy' && distance >= 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'Business' && distance >= 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8))/1000) * 2;
+                co2Emissions = Math.ceil(co2Emissions);
+            } else if (cabinClass == 'First Class' && distance >= 3000 && tripChoice == 'Yes') {
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8))/1000) * 2;
                 co2Emissions = Math.ceil(co2Emissions);
             }
             
