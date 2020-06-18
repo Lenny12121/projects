@@ -1,9 +1,34 @@
 $(()=> {
 
     //Instead of creating my own list/array of airport codes & cities I implemented autocomplete package for airport code & city from https://www.npmjs.com/package/airport-autocomplete-js
+    
+    const options = {
+        // formatting:  `<div class="$(unique-result)"
+        //                  single-result" 
+        //                  data-index="$(i)"> 
+        //                $(IATA) </div>`
+        fuse_options: {
+            shouldSort: true,
+            threshold: 0.4,
+            maxPatternLength: 32,
+            keys: [{
+                name: "IATA",
+                weight: 1
+              },
+              {
+                name: "name",
+                weight: 0
+              },
+              {
+                name: "city",
+                weight: 0
+              }
+            ]
+          }
+      };
 
-    AirportInput("departure");
-    AirportInput("arrival");
+    AirportInput("departure", options);
+    AirportInput("arrival", options);
 
     let IATAcodeDeparture = '';
     let IATAcodeArrival = '';
@@ -130,7 +155,8 @@ $(()=> {
             console.log('distance after: ', distance);
             // console.log(route.totals.distance_km)
             // console.log(route)
-            // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight
+
+            // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight using the formula we created in the notes above
             
             let co2Emissions = 0
             if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'No') {

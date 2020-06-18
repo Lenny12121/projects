@@ -1,0 +1,59 @@
+body  {
+    max-width: 90%;
+    background-color: #f4f4f4;
+}
+
+.input  {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #8c959e;
+}
+
+form  {
+    max-width: 50%;
+    background-color: #fafcfb;
+    padding: 30px;
+    font-family: 'Catamaran', sans-serif;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+
+}
+
+#label  {
+    color: #667380;
+}
+
+.heading {
+    color: #1a3066;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    padding: 30px;
+}
+
+#save-flight {
+    background-color: #43bfbf;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 100%;
+    border-radius: 45px;
+    -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    color: #fafcfb;
+    font-size: 16px;
+    font-weight: 600;
+    border-width: 0;
+}
+
+#save-flight:hover {
+    background-color: #4dcccc;
+}
+

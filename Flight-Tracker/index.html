@@ -6,26 +6,27 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" charset="utf-8"></script>
         <script src="app.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/airport-autocomplete-js@latest/dist/index.browser.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-
+        <h1 class="heading">Log & Offset Your Flights</h1>
         <form>
-            <label id="trip">Roundtrip</label><br>
-            <select id="tripChoice">
+            <label id="label">Roundtrip</label><br>
+            <select class="input" id="tripChoice">
                 <option id="Yes">Yes</option>
                 <option id="No">No</option>
-            </select><br><br>
+            </select><br>
             <label id="label">Enter Departure Airport</label>
-            <input type="text" id="departure" placeholder="Departure Airport"/>
+            <input class="input" type="text" id="departure" placeholder="Departure Airport"/>
             <label id="label">Enter Arrival Airport</label>
-            <input type="text" id="arrival" placeholder="Arrival Airport"/>
+            <input class="input" type="text" id="arrival" placeholder="Arrival Airport"/>
             <label id="label">Choose Cabin Class</label><br>
-            <select id="cabinClass">
-                <option id="economy">Economy</option>
-                <option id="premium-economy">Premium Economy</option>
-                <option id="business">Business</option>
-                <option id="first-class">First Class</option>
+            <select class="input" id="cabinClass">
+                <option class="input" id="economy">Economy</option>
+                <option class="input" id="premium-economy">Premium Economy</option>
+                <option class="input" id="business">Business</option>
+                <option class="input" id="first-class">First Class</option>
             </select><br><br>
             <button id="save-flight">Save Flight & Calculate</button>
           </form>
