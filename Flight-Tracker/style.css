@@ -3,6 +3,17 @@ body  {
     background-color: #f4f4f4;
 }
 
+.container  {
+    width: 100%;
+    min-height: 150px;
+    background-color: #d3d3d3;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 15px;
+    margin-top: 35px;
+    border-radius: 20px;
+}
+
 .input  {
     width: 100%;
     padding: 5px;
@@ -34,6 +45,14 @@ form  {
     padding: 30px;
 }
 
+.heading1 {
+    color: #1a3066;
+    font-family: 'Catamaran', sans-serif;
+    text-align: left;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
 #save-flight {
     background-color: #43bfbf;
     padding-top: 10px;
@@ -53,7 +72,77 @@ form  {
     border-width: 0;
 }
 
+#loggedFlight {
+    max-width: 33%;
+    background-color: #fafcfb;
+    padding: 15px;
+    margin-right: 20px;
+    font-family: 'Catamaran', sans-serif;
+    border-radius: 20px;
+    -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+}
+
 #save-flight:hover {
     background-color: #4dcccc;
+}
+
+#flight {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+#planeGif {
+    width: 130px;
+}
+
+#flightRoute {
+    color: #1a3066;
+    font-size: 16px;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+}
+
+#CO2amount {
+    color: #667380;
+    font-size: 12px;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+}
+
+#flightBox {
+    display: flex;
+    flex-direction: row;
+}
+
+#flightText {
+    margin-top: 35px;
+    margin-right: 50px;
+}
+
+#offset-flight {
+    background-color: #43bfbf;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 100%;
+    border-radius: 45px;
+    -webkit-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    -moz-box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    box-shadow: 7px 7px 15px -17px rgba(46,50,60,0.9);
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    color: #fafcfb;
+    font-size: 16px;
+    font-weight: 600;
+    border-width: 0;
+}
+
+#close {
+    width: 10px;
+    height: 10px;
 }
 

@@ -214,10 +214,14 @@ $(()=> {
             let IATAcodeDeparture = $('#departure').val().substring(0,3);
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
 
-            $('.container').html(`
-                <div id="flight"> <h2> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3> ${co2Emissions} tonnes of CO2</h3> </div>
+            $('.flightBox').append(`
+                <div id="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">4 tonnes of CO2</h3></div> </div> <div id="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">${co2Emissions} tonnes of CO2 ($$$)</button> </div>
             `)
 
+            $('#closeImage').on('click', (event) => {
+                $('.flightBox').empty();
+                console.log('clicking')
+            });
 
         }, (error) => {
           console.error(error);
