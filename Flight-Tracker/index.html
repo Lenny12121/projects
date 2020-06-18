@@ -11,14 +11,17 @@
     <body>
 
         <form>
-            <input type="text" id="departure"/>
-            <input type="text" id="arrival" />
+            <label id="label">Enter Departure Airport</label>
+            <input type="text" id="departure" placeholder="Departure Airport"/>
+            <label id="label">Enter Arrival Airport</label>
+            <input type="text" id="arrival" placeholder="Arrival Airport"/>
+            <label id="label">Choose Cabin Class</label><br>
             <select id="cabinClass">
                 <option id="economy">Economy</option>
                 <option id="premium-economy">Premium Economy</option>
                 <option id="business">Business</option>
                 <option id="first-class">First Class</option>
-            </select>
+            </select><br><br>
             <button id="save-flight">Save Flight & Calculate</button>
           </form>
           

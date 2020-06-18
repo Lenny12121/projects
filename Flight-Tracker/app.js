@@ -164,7 +164,7 @@ $(()=> {
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
 
             $('.container').html(`
-                <div> <h2> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3> ${co2Emissions} tonnes of CO2</h3> </div>
+                <div id="flight"> <h2> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3> ${co2Emissions} tonnes of CO2</h3> </div>
             `)
 
 
