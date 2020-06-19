@@ -165,9 +165,10 @@ form  {
     text-align: center;
 }
 
-#flightBox {
+.flightBox {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #flightText {
