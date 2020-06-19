@@ -1,6 +1,6 @@
 $(() => {
 
-    //Instead of creating my own list/array of airport codes & cities I implemented autocomplete package for airport code & city from https://www.npmjs.com/package/airport-autocomplete-js
+    //Instead of creating my own list/array of airport codes & cities I implemented this autocomplete package for airport code & city from https://www.npmjs.com/package/airport-autocomplete-js
 
     const options = {
         formatting: `<div class="$(unique-result)" single-result" data-index="$(i)"> $(IATA)</div>`
@@ -202,14 +202,11 @@ $(() => {
             let IATAcodeDeparture = $('#departure').val().substring(0, 3);
             let IATAcodeArrival = $('#arrival').val().substring(0, 3);
             let price = co2Emissions * 4.20;
-            let finalPrice = Math.ceil(price);
 
             let flightDiv =
-                `<div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${finalPrice})</button> </div>`
+                `<div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${price})</button> </div>`
 
             $('.flightBox').append(flightDiv);
-
-            // localStorage.setItem('flightLog', flightDiv)
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
 
@@ -229,28 +226,16 @@ $(() => {
         $('.container').html(localStorage.getItem('flightLog'));
     };
 
-
     $(document).on('click', '.closeImage', function () {
         $(this).parent().parent().remove();
         cache();
     })
 
-    // let departure1 = $(IATAcodeDeparture).eq(0);
-    // let arrival1 = $(IATAcodeArrival).eq(0);
-    // let departure = IATAcodeDeparture[0];
-    // let arrival = IATAcodeArrival[0];
-
     $('#save-flight').on('click', (event) => {
         event.preventDefault()
         getAirportDeparture();
-        // getAirportArrival();
-        // calculateDistance();
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
-        // console.log(departure);
-        // console.log(arrival);
-        // console.log(departure1);
-        // console.log(arrival1);
     });
 
     // Custom dropdown menu taken and modified from here: https://jsfiddle.net/BB3JK/47/
