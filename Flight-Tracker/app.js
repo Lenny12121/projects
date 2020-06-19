@@ -45,7 +45,6 @@ $(()=> {
         }).then((airport) => {
             let departure = airport[0].ident
             IATAcodeDeparture = departure;
-            console.log('departure: ' , IATAcodeDeparture)
             getAirportArrival();
         }, (error) => {
           console.error(error);
@@ -125,11 +124,7 @@ $(()=> {
     const calculateCO2 = () => {
         // First take the Cabin Class entered by the user and save it for later
         let cabinClass = $('.inputBody').val();
-        console.log(cabinClass);
         let tripChoice = $('.inputBody1').val();
-        console.log(tripChoice);
-        console.log(IATAcodeDeparture);
-        console.log(IATAcodeArrival);
         $.ajax({
           url: "https://greatcirclemapper.p.rapidapi.com/airports/route/" + IATAcodeDeparture + "-" + IATAcodeArrival + "/510",
           method: "GET",
@@ -139,9 +134,6 @@ $(()=> {
             "x-rapidapi-key": "127954c385msh671084fd9c934cap1652ccjsn0d18428954de"
         }
         }).then((route) => {
-            // $('.container').html(`
-            // <h2> ${route.totals.distance_km} </h2>
-            // `)
             let distance = route.totals.distance_km
             console.log('distance before: ', distance);
             if (distance <= 550) {
@@ -151,14 +143,8 @@ $(()=> {
             } else {
                 distance = distance + 125;
             }
-            console.log('distance after: ', distance);
-            // console.log(route.totals.distance_km)
-            // console.log(route)
 
             // After calculating & adjusting the distance we must determine if it is longhaul or short haul and find the co2 emission for the passenger on this flight using the formula we created in the notes above
-
-            console.log('CabinClass: ', cabinClass)
-            console.log('tripChoice: ', tripChoice)
             
             let co2Emissions = 0
             if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'No') {
@@ -212,17 +198,11 @@ $(()=> {
             } else  {
                 console.log('error. Fool!')
             }
-            
-            console.log('co2 emissions after: ', co2Emissions);
 
             let IATAcodeDeparture = $('#departure').val().substring(0,3);
             let IATAcodeArrival = $('#arrival').val().substring(0,3);
             let price = co2Emissions * 4.20;
             let finalPrice = Math.ceil(price);
-
-            // let randomNumber = Math.random();
-            // let randomNumber1 = Math.random();
-            // let randomId = randomNumber * randomNumber1;
 
             $('.flightBox').append(`
                 <div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${finalPrice})</button> </div>
