@@ -209,6 +209,7 @@ form  {
     visibility:hidden;
     padding-right:10px;
 }
+
 .select {
     cursor:pointer;
     display:inline-block;
@@ -221,6 +222,7 @@ form  {
     color: #667380;
     margin-bottom: 20px;
 }
+
 .styledSelect {
     position:absolute;
     top:0;
@@ -230,6 +232,7 @@ form  {
     background-color:white;
     padding:0 10px;
 }
+
 .styledSelect:after {
     content:"";
     width:0;
@@ -240,9 +243,11 @@ form  {
     top:9px;
     right:6px;
 }
+
 .styledSelect:active, .styledSelect.active {
     background-color:#eee;
 }
+
 .options {
     display:none;
     position:absolute;
@@ -307,42 +312,28 @@ p {
     font-family: 'Catamaran', sans-serif;
 }
 
-/* #accordion .ui-accordion-content > * {
-    margin: 0;
-    padding: 20px;
-  } */
-
-  #accordion .ui-accordion-content a {
+#accordion .ui-accordion-content a {
     color: #43bfbf;
     padding-left: 5px;
     font-family: 'Catamaran', sans-serif;
   }
 
-  #accordion .ui-accordion-header {
+#accordion .ui-accordion-header {
     background-color: #d3d3d3;
     color: #667380;
     font-weight: 600;
     margin: 0px;
     padding-left: 5px;
     font-size: 14px;
+    cursor: pointer;
 }
 
-#accordion .ui-accordion-header a {
-    color: #fff;
-    line-height: 42px;
-    display: block;
-    font-size: 12pt;
-    width: 100%;
-    text-indent: 10px;
-}
-
-#accordion .ui-accordion-header a {
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
-    text-shadow: 1px 1px 0px rgba(0,0,0,0.2);
-    border-right: 1px solid rgba(0, 0, 0, .2);
-    border-left: 1px solid rgba(0, 0, 0, .2);
-    border-bottom: 1px solid rgba(0, 0, 0, .2);
-    border-top: 1px solid rgba(250, 250, 250, .2);
+h4  {
+    font-weight: 400;
+    color: #8c959e;
+    font-family: 'Catamaran', sans-serif;
+    text-align: center;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 750px) {
