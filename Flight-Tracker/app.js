@@ -131,7 +131,7 @@ $(() => {
         } else  {
             tickets = $('.input-plus-minus').val();
         } 
-        
+
         console.log(tickets);
         $.ajax({
             url: "https://greatcirclemapper.p.rapidapi.com/airports/route/" + IATAcodeDeparture + "-" + IATAcodeArrival + "/510",
@@ -255,7 +255,8 @@ $(() => {
     //         let number = num.toString();
     //         alert(number );
     //         }
-    //     let quantityTotal = number / 0.42
+    //     let quantityTotal = number / 0.42;
+
     //     stripe.redirectToCheckout({
     //         billingAddressCollection: 'required',
     //         lineItems: [{price: 'price_1GxDKVHinkcuNuApKvVyzAMv', quantity: quantityTotal}],
@@ -285,28 +286,6 @@ $(() => {
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
     });
-
-    // //added the + / - buttons using doc from here: https://codepen.io/OmarShaheen/pen/LmzRpX
-
-    // jQuery(function(){
-    //     var j = jQuery; 
-    //     var addInput = '#qty'; 
-    //     var n = 1; 
-
-    //     j(addInput).val(n);
-      
-    //     //On click add 1 to n
-    //     j('.plus').on('click', function(){
-    //       j(addInput).val(++n);
-    //     })
-      
-    //     j('.min').on('click', function(){
-    //       if (n >= 1) {
-    //         j(addInput).val(--n);
-    //       } else {
-    //       }
-    //     });
-    //   });
 
     // Custom dropdown menu taken and modified from here: https://jsfiddle.net/BB3JK/47/
 

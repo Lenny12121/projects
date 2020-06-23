@@ -105,44 +105,6 @@ form  {
     height: 26px;
 }
 
-.minus-plus-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    margin-left: 3px;
-}
-
-.plus {
-    background: #8c959e;
-    color: #fafcfb;
-    padding: 3px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    min-width: 10px;
-    text-align: center;
-    cursor: pointer;
-    max-height: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.min {
-    min-width: 10px;
-    background: #8c959e;
-    color: #fafcfb;
-    padding: 3px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    text-align: center;
-    cursor: pointer;
-    max-height: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .ticket-class  {
     display: flex;
 }
