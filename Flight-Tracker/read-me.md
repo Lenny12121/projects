@@ -13,7 +13,11 @@ After extensive research into flight offsetting this tool was built in order to 
 
 3. Everything else is written in HTML, Pure CSS, JavaScript, jQuery (including jQuery UI).
 
+4. On the live version Stripe has been integrated to allow for payments.
+
 ## Still unsolved:
 1. Appending placeholder text into the "Your Flights" section of the site
 
-2. Adding Stripe to the live version of the site.
+2. Allowing multiple tickets to be offset in one go.
+
+3. Allowing to offset all flights in one go.
