@@ -2,8 +2,9 @@
 
 After extensive research into flight offsetting this tool was built in order to simplify it's implementation. It details the methodology of CO2 calculation and automatically calculates the corresponding price in dollars.
 
-[Git demo](https://lenny12121.github.io/projects/Flight-Tracker/)
-[Live](https://www.getmads.com/flight-tracker)
+1. [Git demo](https://lenny12121.github.io/projects/Flight-Tracker/)
+
+2. [Live](https://www.getmads.com/flight-tracker)
 
 ## Technologies used:
 1. Instead of creating my own list/array of airport codes & cities I implemented this autocomplete package for airport code & city which uses Fuse.js (https://www.npmjs.com/package/airport-autocomplete-js)
