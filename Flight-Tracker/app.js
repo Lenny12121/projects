@@ -208,6 +208,12 @@ $(() => {
 
             $('.noFlights').empty();
 
+            //NEED TO ADD STRIPE LISTENER HERE I THINK
+
+            // $('#offset-flight').on('click', (event) =>  {
+                
+            // })
+
             $('.flightBox').append(flightDiv);
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
@@ -236,6 +242,38 @@ $(() => {
             // }
         cache();
     })
+
+    //Attempt at stripe payment for each tile. Need to load stripe js externally as done on live site. THIS WILL NOT WORK IN DEMO 
+
+    // $(document).on('click', '#offset-flight', function () {
+    //     let sd=$(this).text();
+    //     let num = sd.match(/[\d\.]+/g);
+    //         if (num != null){
+    //         let number = num.toString();
+    //         alert(number );
+    //         }
+    //     let quantityTotal = number / 0.42
+    //     stripe.redirectToCheckout({
+    //         billingAddressCollection: 'required',
+    //         lineItems: [{price: 'price_1GxDKVHinkcuNuApKvVyzAMv', quantity: quantityTotal}],
+    //         mode: 'payment',
+    //         // Do not rely on the redirect to the successUrl for fulfilling
+    //         // purchases, customers may not always reach the success_url after
+    //         // a successful payment.
+    //         // Instead use one of the strategies described in
+    //         // https://stripe.com/docs/payments/checkout/fulfillment
+    //         successUrl: 'http://www.getmads.com/success',
+    //         cancelUrl: 'http://www.getmads.com/canceled',
+    //       })
+    //       .then(function (result) {
+    //         if (result.error) {
+    //           // If `redirectToCheckout` fails due to a browser or network
+    //           // error, display the localized error message to your customer.
+    //           var displayError = document.getElementById('error-message');
+    //           displayError.textContent = result.error.message;
+    //         }
+    //       });
+    //     });
 
 
     $('#save-flight').on('click', (event) => {
@@ -306,3 +344,11 @@ $(() => {
 
 
 })
+
+
+<script src="https://uploads-ssl.webflow.com/5e464cacf1271f4715131371/5ef04f8770215e4c2fc639d0_Webflow-JS-Accordion-FlightTracker.txt"></script>
+<script></script>
+
+//with stripe
+<script src="https://uploads-ssl.webflow.com/5e464cacf1271f4715131371/5ef21f2ad4187730e7207285_Webflow-JS-Accordion-FlightTracker%20STRIPE.txt"></script>
+<script></script>
