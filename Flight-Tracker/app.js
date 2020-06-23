@@ -208,12 +208,6 @@ $(() => {
 
             $('.noFlights').empty();
 
-            //NEED TO ADD STRIPE LISTENER HERE I THINK
-
-            // $('#offset-flight').on('click', (event) =>  {
-                
-            // })
-
             $('.flightBox').append(flightDiv);
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
@@ -344,11 +338,3 @@ $(() => {
 
 
 })
-
-
-<script src="https://uploads-ssl.webflow.com/5e464cacf1271f4715131371/5ef04f8770215e4c2fc639d0_Webflow-JS-Accordion-FlightTracker.txt"></script>
-<script></script>
-
-//with stripe
-<script src="https://uploads-ssl.webflow.com/5e464cacf1271f4715131371/5ef21f2ad4187730e7207285_Webflow-JS-Accordion-FlightTracker%20STRIPE.txt"></script>
-<script></script>
