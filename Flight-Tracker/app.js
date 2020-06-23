@@ -215,17 +215,33 @@ $(() => {
             let flightDiv =
                 `<div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${price})</button> </div>`
 
-            $('.noFlights').empty();
+            $('.noFlights').remove();
 
             $('.flightBox').append(flightDiv);
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
+
+            buttonFunc();
 
             cache();
 
         }, (error) => {
             console.error(error);
         })
+    }
+
+    const  buttonFunc = () => {
+        if (($('div').length > 35) && ($('.offset-all').length != 1)) {
+            let buttonDiv =
+                `<div class="offset-all"><button id="offset-all-flights">Offset All Flights</button></div>`
+            $('.container').append(buttonDiv);
+            console.log($('div').length)
+            console.log($('#offset-all-flights').length)
+        } else if (($('.offset-all').length = 1) && ($('div').length < 40)) {
+            // $('div').length < 40
+            console.log($('#offset-all-flights').length)
+            $('.offset-all').remove();
+        }
     }
 
     let cache = () =>   {
@@ -243,6 +259,7 @@ $(() => {
             //     console.log('FLightbox is empty')
             //     $('.noFlights').text(`You have  not logged any flights yet. Use the form above to get started.`);
             // }
+        buttonFunc();
         cache();
     })
 
