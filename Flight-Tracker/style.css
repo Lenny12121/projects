@@ -11,7 +11,7 @@
       color:#fafcfb;
 }
   
-  .autocomplete-results {
+.autocomplete-results {
     position: inherit;
     background-color: #d3d3d3;
     z-index: 100;
@@ -102,6 +102,15 @@ form  {
     padding-left: 10px;
 }
 
+.noFlights  {
+    color: #667380;
+    font-family: 'Catamaran', sans-serif;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
 #save-flight {
     background-color: #43bfbf;
     padding-top: 10px;
@@ -166,6 +175,12 @@ form  {
 }
 
 .flightBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flightBox:empty {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

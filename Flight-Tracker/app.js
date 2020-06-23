@@ -206,6 +206,8 @@ $(() => {
             let flightDiv =
                 `<div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${price})</button> </div>`
 
+            $('.noFlights').empty();
+
             $('.flightBox').append(flightDiv);
 
             $('.flightBox').css('display', 'flex').css('flex-direction', 'row').css('flex-wrap', 'wrap');
@@ -224,12 +226,17 @@ $(() => {
 
     if (localStorage.getItem('flightLog')) {
         $('.container').html(localStorage.getItem('flightLog'));
-    };
+    } 
 
     $(document).on('click', '.closeImage', function () {
         $(this).parent().parent().remove();
+            // if ($('.flightBox').contents()) {
+            //     console.log('FLightbox is empty')
+            //     $('.noFlights').text(`You have  not logged any flights yet. Use the form above to get started.`);
+            // }
         cache();
     })
+
 
     $('#save-flight').on('click', (event) => {
         event.preventDefault()
