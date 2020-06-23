@@ -125,6 +125,8 @@ $(() => {
         // First take the Cabin Class entered by the user and save it for later
         let cabinClass = $('.inputBody').val();
         let tripChoice = $('.inputBody1').val();
+        let tickets = $('.input-plus-minus').val();
+        console.log(tickets);
         $.ajax({
             url: "https://greatcirclemapper.p.rapidapi.com/airports/route/" + IATAcodeDeparture + "-" + IATAcodeArrival + "/510",
             method: "GET",
@@ -148,52 +150,52 @@ $(() => {
 
             let co2Emissions = 0
             if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000;
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance < 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000;
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance < 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 * 0.8)) / 1000;
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance < 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 * 0.8)) / 1000;
+                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Economy' && distance >= 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000;
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance >= 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000;
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance >= 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8)) / 1000;
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance >= 3000 && tripChoice == 'No') {
-                co2Emissions = ((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8)) / 1000;
+                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8)) / 1000) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Economy' && distance < 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance < 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 2.3 * 3.15 * 0.85 * 2.7 * 0.82) / (155 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance < 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 2.3 * 3.15 * 0.85 * 2.7 * 2.07) / (155 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance < 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 2.3 * 3.15 * 0.85 * 2.7 * 4.79) / (155 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Economy' && distance >= 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Premium Economy' && distance >= 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 8.9 * 3.15 * 0.85 * 2.7 * 0.82) / (380 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'Business' && distance >= 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 8.9 * 3.15 * 0.85 * 2.7 * 2.07) / (380 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else if (cabinClass == 'First Class' && distance >= 3000 && tripChoice == 'Yes') {
-                co2Emissions = (((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8)) / 1000) * 2;
+                co2Emissions = ((((distance * 8.9 * 3.15 * 0.85 * 2.7 * 4.79) / (380 * 0.8)) / 1000) * 2) * tickets;
                 co2Emissions = Math.ceil(co2Emissions);
             } else {
                 console.log('error. Fool!')
@@ -201,7 +203,8 @@ $(() => {
 
             let IATAcodeDeparture = $('#departure').val().substring(0, 3);
             let IATAcodeArrival = $('#arrival').val().substring(0, 3);
-            let price = co2Emissions * 4.20;
+            let price1 = co2Emissions * 4.20;
+            let price = price1.toFixed(2);
 
             let flightDiv =
                 `<div class="loggedFlight"><div id="flight"> <div id="image"> <img id="planeGif" src="./Assets/airplane.gif" alt="Offset Flight"> </div> <div> <div id="flightText"> <h2 id="flightRoute"> ${IATAcodeDeparture} - ${IATAcodeArrival} </h2> <h3 id="CO2amount">${co2Emissions} tonnes of CO2</h3></div> </div> <div class="closeImage"><img id="close" src="./Assets/Untitled-1.png" alt="Close"></div> </div> <button id="offset-flight">Offset ($${price})</button> </div>`
@@ -237,7 +240,7 @@ $(() => {
         cache();
     })
 
-    //Attempt at stripe payment for each tile. Need to load stripe js externally as done on live site. THIS WILL NOT WORK IN DEMO 
+    //Added stripe payment for each tile. Need to load stripe js externally as done on live site. THIS WILL NOT WORK IN DEMO 
 
     // $(document).on('click', '#offset-flight', function () {
     //     let sd=$(this).text();
@@ -276,6 +279,28 @@ $(() => {
         console.log(IATAcodeDeparture);
         console.log(IATAcodeArrival);
     });
+
+    //added the + / - buttons using doc from here: https://codepen.io/OmarShaheen/pen/LmzRpX
+
+    jQuery(function(){
+        var j = jQuery; 
+        var addInput = '#qty'; 
+        var n = 1; 
+
+        j(addInput).val(n);
+      
+        //On click add 1 to n
+        j('.plus').on('click', function(){
+          j(addInput).val(++n);
+        })
+      
+        j('.min').on('click', function(){
+          if (n >= 1) {
+            j(addInput).val(--n);
+          } else {
+          }
+        });
+      });
 
     // Custom dropdown menu taken and modified from here: https://jsfiddle.net/BB3JK/47/
 

@@ -133,13 +133,33 @@
             <input class="inputText" type="text" id="departure" placeholder="Departure Airport"/>
             <label id="label">Enter Arrival Airport</label>
             <input class="inputText" type="text" id="arrival" placeholder="Arrival Airport"/>
-            <label id="label">Choose Cabin Class</label><br>
-            <select class="custom-input" id="cabinClass">
-                <option class="inputBody" id="economy">Economy</option>
-                <option class="inputBody" id="premium-economy">Premium Economy</option>
-                <option class="inputBody" id="business">Business</option>
-                <option class="inputBody" id="first-class">First Class</option>
-            </select><br><br>
+                <div class="ticket-class">
+                <div class="tickets">
+                        <label class="ticket-label" id="label">Tickets</label><br>
+                    <div class="ticket-input">
+                        <input class="input-plus-minus" type="text" name="qty" id="qty" maxlength="12"/>
+                        <div class="minus-plus-buttons">
+                            <span class="plus button">
+                                <!-- <img class="plus-minus" id="plus" src="./Assets/plus.png" alt="plus-icon"> -->
+                                +
+                            </span>
+                            <span class="min button">
+                                <!-- <img class="plus-minus" id="minus" src="./Assets/minus.png" alt="plus-icon"> -->
+                                -
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            <div class="cabin-class">
+                <label id="label">Choose Cabin Class</label><br>
+                <select class="custom-input" id="cabinClass">
+                    <option class="inputBody" id="economy">Economy</option>
+                    <option class="inputBody" id="premium-economy">Premium Economy</option>
+                    <option class="inputBody" id="business">Business</option>
+                    <option class="inputBody" id="first-class">First Class</option>
+                </select><br><br>
+            </div>
+            </div>
             <button id="save-flight">Save Flight & Calculate</button>
           </form>
         </div>
