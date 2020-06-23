@@ -101,7 +101,8 @@ form  {
     color: #667380;
     font-size: 16px;
     font-family: 'Catamaran', sans-serif;
-    max-width: 20%;
+    width: 60%;
+    height: 26px;
 }
 
 .minus-plus-buttons {

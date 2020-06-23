@@ -126,6 +126,12 @@ $(() => {
         let cabinClass = $('.inputBody').val();
         let tripChoice = $('.inputBody1').val();
         let tickets = $('.input-plus-minus').val();
+        if (tickets <= 1) {
+            tickets = 1;
+        } else  {
+            tickets = $('.input-plus-minus').val();
+        } 
+        
         console.log(tickets);
         $.ajax({
             url: "https://greatcirclemapper.p.rapidapi.com/airports/route/" + IATAcodeDeparture + "-" + IATAcodeArrival + "/510",
@@ -280,27 +286,27 @@ $(() => {
         console.log(IATAcodeArrival);
     });
 
-    //added the + / - buttons using doc from here: https://codepen.io/OmarShaheen/pen/LmzRpX
+    // //added the + / - buttons using doc from here: https://codepen.io/OmarShaheen/pen/LmzRpX
 
-    jQuery(function(){
-        var j = jQuery; 
-        var addInput = '#qty'; 
-        var n = 1; 
+    // jQuery(function(){
+    //     var j = jQuery; 
+    //     var addInput = '#qty'; 
+    //     var n = 1; 
 
-        j(addInput).val(n);
+    //     j(addInput).val(n);
       
-        //On click add 1 to n
-        j('.plus').on('click', function(){
-          j(addInput).val(++n);
-        })
+    //     //On click add 1 to n
+    //     j('.plus').on('click', function(){
+    //       j(addInput).val(++n);
+    //     })
       
-        j('.min').on('click', function(){
-          if (n >= 1) {
-            j(addInput).val(--n);
-          } else {
-          }
-        });
-      });
+    //     j('.min').on('click', function(){
+    //       if (n >= 1) {
+    //         j(addInput).val(--n);
+    //       } else {
+    //       }
+    //     });
+    //   });
 
     // Custom dropdown menu taken and modified from here: https://jsfiddle.net/BB3JK/47/
 
